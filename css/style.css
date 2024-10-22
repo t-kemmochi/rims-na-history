@@ -1,0 +1,281 @@
+/* 色をカスタムプロパティとして指定. */
+/* 基本的に1回ずつしか現れないのでこうする意味はほぼないが,  */
+/* 色の指定をまとめて書いておくとわかりやすい気がする. */
+:root {
+    --text-color-body: #444444;
+    --text-color-link: #0080ff;
+    --text-color-visited: #1e90ff;
+    --text-color-heading: #333333;
+    --text-color-strong: #FF6666;
+    --bg-color-header: #e5f2ff;
+    --bg-color-session: #e5f2ff;
+    --text-color-session: #222222;
+    --bg-color-talk: #f6fafe;
+    --border-color-h2: #c6e2ff;
+    --border-color-h3: #61b0ff;
+    --border-color-table: #999999;
+    --border-color-timetable: #ffffff;
+    --border-color-timetable-header: var(--border-color-h3);
+    --bg-color-timetable-even: var(--bg-color-talk);
+    --text-color-timetable-odd: #909090;
+    --text-color-chair: #666666;
+    --border-color-chair: #666666;
+}
+
+
+/* 全体的な設定 */
+/* font-family -> cf. https://ics.media/entry/200317/ */
+body {
+    max-width: 940px;
+    margin: auto;
+    margin-bottom: 50px;
+    color: var(--text-color-body);
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; 
+    line-height: 1.75;
+}
+
+em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+/* リンクに関する設定 */
+a:link {
+    color: var(--text-color-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--text-color-visited);;
+}
+
+/* ヘッダー部, メイン部分の設定 */
+header,main {
+    margin: 20px;
+}
+
+header {
+    background-color: var(--bg-color-header);
+    padding: 10px;
+}
+
+/* dlタグのリストのdtとddを横並びにする */
+dt {
+    float: left;
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 6em;
+}
+
+/* 強調の設定. strongの方がより強い. */
+strong {
+    font-weight: bold;
+    color: var(--text-color-strong);
+}
+
+em {
+    font-weight: bold;
+}
+
+/* 見出しの設定 */
+h1 {
+    font-size: 1.75rem;
+    margin: 0.5rem auto;
+    line-height: 1.2
+}
+
+h1 a, h1 a:visited {
+    color: var(--text-color-body);
+}
+
+h2 {
+    font-weight: normal;
+    margin-top: 2.5rem;
+    border-left: var(--border-color-h2) solid 5px;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.2rem;
+}
+
+h1, h2 {
+    color: var(--text-color-heading);
+}
+
+h3 {
+    font-weight: bold;
+    border-bottom: var(--border-color-h3) solid 1px;
+    padding: 0.5rem;
+}
+
+
+/* プログラムのページの設定 */
+.session {
+    padding: 0.5rem;
+    color: var(--text-color-session);
+}
+
+.session-title {
+    background-color: var(--bg-color-session);
+    padding: 0.5rem 1rem;
+    margin: 0.2rem 0px;
+}
+.session-title h4 {
+    display: inline;
+    font-weight: bold;
+}
+
+.chair {
+    margin-left: 1rem;
+}
+
+.chair .chair-header {
+    font-size: 0.9rem;
+    background-color: #ffffff;
+    color: var(--text-color-chair);
+    border: var(--border-color-chair) 1px solid;
+    border-radius: 0.25rem;
+    padding: 0.05rem 0.15rem;
+    margin-right: 0.5rem;
+    vertical-align: 0.05rem;
+}
+
+.talk {
+    background-color: var(--bg-color-talk);
+    padding: 0.5rem 1rem;
+    margin: 0.2rem 0px;
+}
+
+.authors, .title {
+    margin-left: 2rem;
+}
+
+.speaker::before {
+    content: "◯";
+    margin-right: 0.1rem;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.rest {
+    margin: 1.5rem 0rem;
+}
+
+
+/* 歴史のページの表の設定 */
+table, th, td {
+    border: var(--border-color-table) solid 1px;
+    line-height: 1.1;
+}
+
+table {
+    border-collapse: collapse;
+    min-width: 900px;
+    margin: 2rem 0rem;
+}
+
+th, td {
+    padding: 0.4rem;
+}
+
+th {
+    text-align: left;
+}
+
+.na_number {
+    width: 3rem;
+}
+.na_span {
+    width: 7.5rem;
+}
+.na_organizer {
+    width: 7rem;
+}
+.na_volume {
+    width: 6rem;
+}
+.na_title {
+    width: 25rem;
+}
+tr td:nth-of-type(6), .smaller {
+    font-size: xx-small;
+}
+
+#covid19 {
+    text-align: center;
+    color: #666666;
+}
+
+/* サブページ下部に張るトップページへのリンクの設定 */
+#go-to-top {
+    margin-top: 3rem;
+}
+
+/* トップページの問い合わせ先のメールアドレス */
+#email {
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
+/* プログラムページのタイムデーブル */
+.time-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; 
+    display: block;
+}
+
+.time-table table {
+    border: var(--border-color-timetable) solid 0px;
+}
+
+.time-table th, .time-table td {
+    white-space: nowrap;
+    border-right: var(--border-color-timetable) solid 4px;
+    border-left: var(--border-color-timetable) solid 4px;
+    border-bottom: var(--border-color-timetable) solid 4px;
+    line-height: 1.5;
+    padding: 0.5rem;
+}
+.time-table .tt-head th {
+    border: var(--border-color-timetable) solid 0px;
+    border-bottom: var(--border-color-timetable-header) solid 2px;
+}
+.time-table table {
+    table-layout: fixed;
+    border: var(--border-color-timetable) solid 0px;
+}
+.time-table tr:nth-child(even) {
+    background-color: var(--bg-color-timetable-even);
+}
+.time-table tr:nth-child(2n+3) {
+    color: var(--text-color-timetable-odd);
+}
+.tt-time {
+    width: 8rem;
+}
+
+
+/* スマホ用の設定 */
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+
+    /* ヘッダー部, メイン部分の設定 */
+    header,main {
+        margin: 10px;
+    }
+
+    .chair {
+        display: block;
+        margin: 0rem;
+    }
+}
